@@ -9,103 +9,18 @@ import riyadhImg from "./assets/riyadh.png";
 import profileImg from "./assets/profile.png";
 import salesImg from "./assets/sales-dashboard.png";
 
-/* ===================== i18n TEXT ===================== */
-const TEXT = {
-  en: {
-    nav: {
-      home: "Home",
-      about: "About",
-      journey: "Journey",
-      skills: "Skills",
-      projects: "Projects",
-      contact: "Contact",
-    },
-    heroHi: "Hi, I’m",
-    readMore: "Read More",
-    viewProjects: "View Projects",
-    aboutTitle: "Why hire me for your",
-    aboutRight: "next project?",
-    journeyTitle: "My Academic and Professional",
-    journeyRight: "Journey",
-    education: "Education",
-    experience: "Professional Experience",
-    skillsTitle: "Tools",
-    skillsRight: "and Skills",
-    tools: "Tools",
-    skills: "Skills",
-    projectsTitle: "Projects",
-    addScreenshot: "Add project screenshot",
-    contactTitle: "Contact",
-    sendMessage: "Send a message",
-    yourName: "Your name",
-    email: "Email",
-    message: "Message",
-    send: "Send",
-    social: "Social",
-    modalHint: "Click outside or ✕ to close — ESC also closes",
-    stats: {
-      months: "Months",
-      experience: "Experience",
-      projects: "Projects",
-      dashboards: "Dashboards",
-      ml: "ML / Analytics",
-      bi: "BI / Insights",
-    },
-  },
-  ar: {
-    nav: {
-      home: "الرئيسية",
-      about: "نبذة",
-      journey: "المسيرة",
-      skills: "المهارات",
-      projects: "المشاريع",
-      contact: "تواصل",
-    },
-    heroHi: "مرحباً، أنا",
-    readMore: "اقرأ المزيد",
-    viewProjects: "عرض المشاريع",
-    aboutTitle: "لماذا تختارني لـ",
-    aboutRight: "مشروعك القادم؟",
-    journeyTitle: "مسيرتي الأكاديمية",
-    journeyRight: "والمهنية",
-    education: "التعليم",
-    experience: "الخبرات العملية",
-    skillsTitle: "الأدوات",
-    skillsRight: "والمهارات",
-    tools: "الأدوات",
-    skills: "المهارات",
-    projectsTitle: "المشاريع",
-    addScreenshot: "أضف لقطة للمشروع",
-    contactTitle: "تواصل",
-    sendMessage: "أرسل رسالة",
-    yourName: "اسمك",
-    email: "الإيميل",
-    message: "رسالتك",
-    send: "إرسال",
-    social: "روابط",
-    modalHint: "اضغطي خارج الصورة أو ✕ للإغلاق — و ESC يقفل أيضًا",
-    stats: {
-      months: "أشهر",
-      experience: "خبرة",
-      projects: "مشاريع",
-      dashboards: "لوحات",
-      ml: "تعلم آلي/تحليل",
-      bi: "BI / Insights",
-    },
-  },
-};
+/* ===================== CONTENT (EN / AR) ===================== */
 
-/* ===================== DATA ===================== */
-const DATA = {
+const DATA_EN = {
   name: "Shmook Mohammed Baalhareth",
   title: "Data Scientist",
   tagline: "Turning data into decisions.",
   about:
     "I’m a Data Scientist focused on building ML solutions, extracting insights, and delivering measurable impact. I enjoy clean dashboards, solid experimentation, and models that ship.",
   stats: [
-    { big: "6", smallKey: "months", subKey: "experience" },
-    { big: "4+", smallKey: "projects", subKey: "ml" },
-    { big: "3+", smallKey: "dashboards", subKey: "bi" },
+    { big: "6", small: "Months", sub: "Experience" },
+    { big: "4+", small: "Projects", sub: "ML / Analytics" },
+    { big: "3+", small: "Dashboards", sub: "BI / Insights" },
   ],
   tools: ["VS Code", "Git", "GitHub", "Jupyter", "Power BI / Tableau"],
   skills: [
@@ -119,18 +34,10 @@ const DATA = {
     { name: "Deep Learning", level: 70 },
   ],
   education: [
-    {
-      date: "2020 - 2025",
-      title: "BSc in Computer Science",
-      place: "Najran University",
-    },
+    { date: "2020 - 2025", title: "BSc in Computer Science", place: "Najran University" },
   ],
   experience: [
-    {
-      date: "2025 - 6 Months",
-      title: "Data Analysis",
-      place: "National Water Company",
-    },
+    { date: "2025 - 6 Months", title: "Data Analysis", place: "National Water Company" },
   ],
   projects: [
     {
@@ -161,10 +68,10 @@ const DATA = {
       title: "Sales Performance & Revenue Analytics Dashboard",
       desc: "An interactive Retail Sales Analytics Dashboard that provides insights into sales performance, revenue, and profitability.",
       tags: ["Power BI", "Data Analysis", "Dashboard"],
+      // ❌ بدون روابط عشان تختفي أزرار Live/GitHub تلقائي
+      github: "#",
+      live: "#",
       image: salesImg,
-      // ✅ بدون روابط: ما راح يظهر Live/GitHub
-      // live: "#",
-      // github: "#",
     },
   ],
   contact: {
@@ -174,7 +81,129 @@ const DATA = {
   },
 };
 
+const DATA_AR = {
+  name: "شموخ محمد بالحرث",
+  title: "عالمة بيانات",
+  tagline: "أحوّل البيانات إلى قرارات.",
+  about:
+    "أنا عالمة بيانات أركز على بناء حلول تعلم آلي، استخراج رؤى، وتقديم أثر قابل للقياس. أحب لوحات التحكم النظيفة، التجارب القوية، والنماذج التي تصل للإنتاج.",
+  stats: [
+    { big: "6", small: "أشهر", sub: "خبرة" },
+    { big: "4+", small: "مشاريع", sub: "تعلم آلي / تحليلات" },
+    { big: "3+", small: "لوحات", sub: "ذكاء أعمال / رؤى" },
+  ],
+  tools: ["VS Code", "Git", "GitHub", "Jupyter", "Power BI / Tableau"],
+  skills: [
+    { name: "Python", level: 95 },
+    { name: "SQL", level: 90 },
+    { name: "Pandas / NumPy", level: 90 },
+    { name: "Machine Learning", level: 85 },
+    { name: "Data Visualization", level: 85 },
+    { name: "Statistics", level: 80 },
+    { name: "NLP", level: 75 },
+    { name: "Deep Learning", level: 70 },
+  ],
+  education: [
+    { date: "2020 - 2025", title: "بكالوريوس علوم الحاسب", place: "جامعة نجران" },
+  ],
+  experience: [
+    { date: "2025 - 6 أشهر", title: "تحليل بيانات", place: "شركة المياه الوطنية" },
+  ],
+  projects: [
+    {
+      title: "ArchitectAI – لوحة تقييم معماريات الذكاء الاصطناعي",
+      desc: "لوحة ذكاء اصطناعي لتقييم ومقارنة معماريات نماذج التعلم الآلي، مع مؤشرات أداء ورؤى ونتائج منظمة تساعد في اختيار المعمارية الأفضل.",
+      tags: ["Python", "تعلم آلي", "تقييم نماذج", "Dashboard"],
+      github: "https://github.com/shmook71/ArchitectAI",
+      live: "https://architect-ai-three.vercel.app/",
+      image: architectImg,
+    },
+    {
+      title: "Apache Logs Monitoring Dashboard",
+      desc: "معالجة أكثر من 100 ألف سجل، وتقليل وقت اكتشاف الحوادث 40%، وبناء لوحة مراقبة لحظية للزيارات والأخطاء والشذوذ.",
+      tags: ["Python", "تحليل سجلات", "Dashboard"],
+      github: "https://github.com/shmook71/apache-logs-dashboard",
+      live: "https://apache-logs-dashboard-exigihcfvcfl5m2nqsvwtp.streamlit.app/",
+      image: apacheImg,
+    },
+    {
+      title: "Riyadh Air Traffic Intelligence Dashboard",
+      desc: "لوحة تفاعلية لتحليل حركة الطيران: أنماط الرحلات، ساعات الذروة، توزيع المسارات، ورؤى تشغيلية تدعم القرارات الاستراتيجية.",
+      tags: ["Python", "تحليل بيانات", "Streamlit", "Dashboard"],
+      github: "https://github.com/shmook71/Kaggle_Project",
+      live: "https://kaggleproject-lnvwlsh7fgoky59ejeiqxi.streamlit.app/",
+      image: riyadhImg,
+    },
+    {
+      title: "Sales Performance & Revenue Analytics Dashboard",
+      desc: "لوحة تحليل مبيعات تفاعلية تعرض أداء المبيعات والإيرادات والربحية بطريقة واضحة وسهلة للقرارات.",
+      tags: ["Power BI", "تحليل بيانات", "Dashboard"],
+      github: "#",
+      live: "#",
+      image: salesImg,
+    },
+  ],
+  contact: {
+    email: "shmookaltihami@gmail.com",
+    github: "https://github.com/shmook71",
+    linkedin: "https://www.linkedin.com/in/shmook-balharith-a876072b3",
+  },
+};
+
+const UI_EN = {
+  nav: { home: "Home", about: "About", journey: "Journey", skills: "Skills", projects: "Projects", contact: "Contact" },
+  heroHi: "Hi, I’m",
+  readMore: "Read More",
+  viewProjects: "View Projects",
+  whyHire: "Why hire me for your",
+  nextProject: "next project?",
+  edu: "Education",
+  exp: "Professional Experience",
+  tools: "Tools",
+  toolsAndSkills: "and Skills",
+  skills: "Skills",
+  projects: "Projects",
+  contact: "Contact",
+  sendMessage: "Send a message",
+  yourName: "Your name",
+  email: "Email",
+  message: "Message",
+  send: "Send",
+  social: "Social",
+  live: "Live",
+  github: "GitHub",
+  imageHint: "Click outside or ✕ to close — ESC works too",
+  addShot: "Add project screenshot",
+};
+
+const UI_AR = {
+  nav: { home: "الرئيسية", about: "نبذة", journey: "المسار", skills: "المهارات", projects: "المشاريع", contact: "تواصل" },
+  heroHi: "مرحباً، أنا",
+  readMore: "اقرأ المزيد",
+  viewProjects: "عرض المشاريع",
+  whyHire: "ليش تختاريني لمشروعك",
+  nextProject: "القادم؟",
+  edu: "التعليم",
+  exp: "الخبرات العملية",
+  tools: "الأدوات",
+  toolsAndSkills: "والمهارات",
+  skills: "المهارات",
+  projects: "المشاريع",
+  contact: "تواصل",
+  sendMessage: "ارسلي رسالة",
+  yourName: "اسمك",
+  email: "الإيميل",
+  message: "رسالتك",
+  send: "إرسال",
+  social: "روابط",
+  live: "عرض",
+  github: "جيت هاب",
+  imageHint: "اضغطي خارج الصورة أو ✕ للإغلاق — زر ESC يقفل أيضاً",
+  addShot: "أضيفي صورة للمشروع",
+};
+
 /* ===================== UI HELPERS ===================== */
+
 function GlowGrid() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -195,8 +224,7 @@ function GlowGrid() {
       <div
         className="absolute -top-28 left-1/2 h-[440px] w-[440px] -translate-x-1/2 rounded-full blur-3xl"
         style={{
-          background:
-            "radial-gradient(circle, rgba(34,211,238,0.22), transparent 62%)",
+          background: "radial-gradient(circle, rgba(34,211,238,0.22), transparent 62%)",
         }}
       />
     </div>
@@ -221,11 +249,7 @@ function Section({ id, title, rightTitle, children }) {
   const { ref, inView } = useInView({ threshold: 0.14, triggerOnce: true });
   return (
     <section id={id} ref={ref} className="mx-auto w-full max-w-5xl px-4 py-14">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={inView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
-      >
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
         <h2 className="mb-8 text-center font-mono text-xl text-white">
           {title}{" "}
           {rightTitle ? (
@@ -250,10 +274,7 @@ function Progress({ label, value }) {
       <div className="h-2 w-full rounded-full bg-white/20">
         <motion.div
           className="h-2 rounded-full"
-          style={{
-            background:
-              "linear-gradient(90deg, rgba(34,211,238,0.95), rgba(59,130,246,0.95))",
-          }}
+          style={{ background: "linear-gradient(90deg, rgba(34,211,238,0.95), rgba(59,130,246,0.95))" }}
           initial={{ width: 0 }}
           whileInView={{ width: `${value}%` }}
           viewport={{ once: true, amount: 0.5 }}
@@ -284,11 +305,14 @@ function SocialLink({ href, children }) {
 }
 
 /* ===================== APP ===================== */
+
 export default function App() {
-  const [selectedImage, setSelectedImage] = React.useState(null);
-  const [lang, setLang] = React.useState("en");
-  const t = TEXT[lang];
+  const [lang, setLang] = React.useState("en"); // "en" | "ar"
+  const DATA = lang === "ar" ? DATA_AR : DATA_EN;
+  const UI = lang === "ar" ? UI_AR : UI_EN;
   const dir = lang === "ar" ? "rtl" : "ltr";
+
+  const [selectedImage, setSelectedImage] = React.useState(null);
 
   // ✅ إغلاق بالـ ESC
   React.useEffect(() => {
@@ -307,25 +331,18 @@ export default function App() {
           <div className="font-mono text-sm text-white">{DATA.name}</div>
 
           <nav className="hidden gap-6 text-sm text-white/80 md:flex">
-            {["home", "about", "journey", "skills", "projects", "contact"].map(
-              (k) => (
-                <a
-                  key={k}
-                  href={`#${k}`}
-                  className="hover:text-white transition"
-                >
-                  {t.nav[k]}
-                </a>
-              )
-            )}
+            {["home", "about", "journey", "skills", "projects", "contact"].map((k) => (
+              <a key={k} href={`#${k}`} className="hover:text-white transition">
+                {UI.nav[k]}
+              </a>
+            ))}
           </nav>
 
           <button
-            onClick={() => setLang(lang === "en" ? "ar" : "en")}
+            onClick={() => setLang((p) => (p === "en" ? "ar" : "en"))}
             className="rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/80 hover:text-white transition"
-            title="Switch language"
           >
-            {lang === "en" ? "AR" : "EN"}
+            {lang === "en" ? "العربية" : "English"} ▾
           </button>
         </div>
       </header>
@@ -341,7 +358,7 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="mb-3 font-mono text-white/85"
           >
-            {t.heroHi}
+            {UI.heroHi}
           </motion.p>
 
           <motion.h1
@@ -364,10 +381,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.08 }}
             className="mt-4 text-lg text-white/90"
           >
-            {DATA.tagline.split(" ").slice(0, 2).join(" ")}{" "}
-            <span className="bg-gradient-to-r from-cyan-300 to-blue-500 bg-clip-text text-transparent">
-              {DATA.tagline.split(" ").slice(2).join(" ")}
-            </span>
+            {DATA.tagline}
           </motion.p>
 
           <motion.div
@@ -380,19 +394,19 @@ export default function App() {
               href="#about"
               className="rounded-xl border border-white/15 bg-white/10 px-5 py-2 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] transition"
             >
-              {t.readMore}
+              {UI.readMore}
             </a>
             <a
               href="#projects"
               className="rounded-xl border border-white/15 bg-white/10 px-5 py-2 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] transition"
             >
-              {t.viewProjects}
+              {UI.viewProjects}
             </a>
           </motion.div>
         </section>
 
         {/* ABOUT */}
-        <Section id="about" title={t.aboutTitle} rightTitle={t.aboutRight}>
+        <Section id="about" title={UI.whyHire} rightTitle={UI.nextProject}>
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="flex items-center justify-center">
               <img
@@ -408,16 +422,12 @@ export default function App() {
               <div className="mt-6 grid grid-cols-3 gap-3">
                 {DATA.stats.map((s) => (
                   <div
-                    key={s.subKey}
+                    key={s.sub}
                     className="rounded-2xl border border-white/15 bg-white/5 p-4 text-center"
                   >
                     <div className="font-mono text-2xl text-white">{s.big}</div>
-                    <div className="text-xs text-white/80">
-                      {t.stats[s.smallKey]}
-                    </div>
-                    <div className="text-xs text-cyan-300">
-                      {t.stats[s.subKey]}
-                    </div>
+                    <div className="text-xs text-white/80">{s.small}</div>
+                    <div className="text-xs text-cyan-300">{s.sub}</div>
                   </div>
                 ))}
               </div>
@@ -426,23 +436,15 @@ export default function App() {
         </Section>
 
         {/* JOURNEY */}
-        <Section
-          id="journey"
-          title={t.journeyTitle}
-          rightTitle={t.journeyRight}
-        >
+        <Section id="journey" title={lang === "ar" ? "مساري" : "My Academic and Professional"} rightTitle={UI.nav.journey}>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                {t.education}
-              </h3>
+              <h3 className="mb-4 text-center font-mono text-sm text-white/90">{UI.edu}</h3>
               <div className="space-y-3">
                 {DATA.education.map((e) => (
                   <Card key={e.title}>
                     <div className="text-xs text-white/70">{e.date}</div>
-                    <div className="mt-1 font-mono text-sm text-white">
-                      {e.title}
-                    </div>
+                    <div className="mt-1 font-mono text-sm text-white">{e.title}</div>
                     <div className="text-xs text-white/80">{e.place}</div>
                   </Card>
                 ))}
@@ -450,16 +452,12 @@ export default function App() {
             </div>
 
             <div>
-              <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                {t.experience}
-              </h3>
+              <h3 className="mb-4 text-center font-mono text-sm text-white/90">{UI.exp}</h3>
               <div className="space-y-3">
                 {DATA.experience.map((e) => (
                   <Card key={e.title}>
                     <div className="text-xs text-white/70">{e.date}</div>
-                    <div className="mt-1 font-mono text-sm text-white">
-                      {e.title}
-                    </div>
+                    <div className="mt-1 font-mono text-sm text-white">{e.title}</div>
                     <div className="text-xs text-white/80">{e.place}</div>
                   </Card>
                 ))}
@@ -469,19 +467,17 @@ export default function App() {
         </Section>
 
         {/* SKILLS */}
-        <Section id="skills" title={t.skillsTitle} rightTitle={t.skillsRight}>
+        <Section id="skills" title={UI.tools} rightTitle={UI.toolsAndSkills}>
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
-              <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                {t.tools}
-              </h3>
+              <h3 className="mb-4 text-center font-mono text-sm text-white/90">{UI.tools}</h3>
               <ul className="space-y-3 text-sm text-white/90">
-                {DATA.tools.map((tool) => (
+                {DATA.tools.map((t) => (
                   <li
-                    key={tool}
+                    key={t}
                     className="flex items-center justify-between rounded-xl border border-white/15 bg-white/5 px-4 py-3"
                   >
-                    <span className="font-mono">{tool}</span>
+                    <span className="font-mono">{t}</span>
                     <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.8)]" />
                   </li>
                 ))}
@@ -489,9 +485,7 @@ export default function App() {
             </Card>
 
             <Card>
-              <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                {t.skills}
-              </h3>
+              <h3 className="mb-4 text-center font-mono text-sm text-white/90">{UI.skills}</h3>
               {DATA.skills.map((s) => (
                 <Progress key={s.name} label={s.name} value={s.level} />
               ))}
@@ -500,7 +494,7 @@ export default function App() {
         </Section>
 
         {/* PROJECTS */}
-        <Section id="projects" title={t.projectsTitle}>
+        <Section id="projects" title={UI.projects}>
           <div className="grid gap-6 md:grid-cols-3">
             {DATA.projects.map((p) => (
               <Card key={p.title} className="group">
@@ -508,14 +502,12 @@ export default function App() {
                   <img
                     src={p.image}
                     alt={p.title}
-                    onClick={() =>
-                      setSelectedImage({ src: p.image, title: p.title })
-                    }
+                    onClick={() => setSelectedImage({ src: p.image, title: p.title })}
                     className="mb-4 h-40 w-full object-cover rounded-xl border border-white/15 cursor-pointer transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 ) : (
                   <div className="mb-4 h-40 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center text-xs text-white/70">
-                    {t.addScreenshot}
+                    {UI.addShot}
                   </div>
                 )}
 
@@ -523,12 +515,12 @@ export default function App() {
                 <p className="mt-2 text-xs leading-5 text-white/90">{p.desc}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {p.tags.map((tag) => (
+                  {p.tags.map((t) => (
                     <span
-                      key={tag}
+                      key={t}
                       className="rounded-full border border-white/15 bg-white/10 px-2 py-1 text-[10px] text-white/90"
                     >
-                      {tag}
+                      {t}
                     </span>
                   ))}
                 </div>
@@ -542,7 +534,7 @@ export default function App() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Live
+                        {UI.live}
                       </a>
                     )}
 
@@ -553,7 +545,7 @@ export default function App() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        GitHub
+                        {UI.github}
                       </a>
                     )}
                   </div>
@@ -564,42 +556,38 @@ export default function App() {
         </Section>
 
         {/* CONTACT */}
-        <Section id="contact" title={t.contactTitle}>
+        <Section id="contact" title={UI.contact}>
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
-              <h3 className="mb-4 font-mono text-sm text-white">
-                {t.sendMessage}
-              </h3>
+              <h3 className="mb-4 font-mono text-sm text-white">{UI.sendMessage}</h3>
               <form className="space-y-3">
                 <input
                   className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder={t.yourName}
+                  placeholder={UI.yourName}
                 />
                 <input
                   className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder={t.email}
+                  placeholder={UI.email}
                 />
                 <textarea
                   className="min-h-[120px] w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder={t.message}
+                  placeholder={UI.message}
                 />
                 <button
                   type="button"
                   className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] transition"
                 >
-                  {t.send}
+                  {UI.send}
                 </button>
               </form>
             </Card>
 
             <Card>
-              <h3 className="mb-4 font-mono text-sm text-white">{t.social}</h3>
+              <h3 className="mb-4 font-mono text-sm text-white">{UI.social}</h3>
               <div className="space-y-3 text-sm text-white/90">
                 <SocialLink href={DATA.contact.github}>GitHub</SocialLink>
                 <SocialLink href={DATA.contact.linkedin}>LinkedIn</SocialLink>
-                <SocialLink href={`mailto:${DATA.contact.email}`}>
-                  Email
-                </SocialLink>
+                <SocialLink href={`mailto:${DATA.contact.email}`}>Email</SocialLink>
               </div>
             </Card>
           </div>
@@ -617,10 +605,7 @@ export default function App() {
             className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
             onClick={() => setSelectedImage(null)}
           >
-            <div
-              className="relative w-full max-w-6xl"
-              onClick={(e) => e.stopPropagation()}
-            >
+            <div className="relative w-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
               <button
                 onClick={() => setSelectedImage(null)}
                 className="absolute -top-3 -right-3 rounded-full border border-white/20 bg-black/60 px-3 py-2 text-sm text-white hover:bg-black/80 transition"
@@ -628,9 +613,7 @@ export default function App() {
                 ✕
               </button>
 
-              <div className="mb-3 text-center text-sm text-white/80">
-                {selectedImage.title}
-              </div>
+              <div className="mb-3 text-center text-sm text-white/80">{selectedImage.title}</div>
 
               <img
                 src={selectedImage.src}
@@ -638,9 +621,7 @@ export default function App() {
                 className="w-full max-h-[80vh] object-contain rounded-2xl border border-white/15 shadow-2xl"
               />
 
-              <div className="mt-3 text-center text-xs text-white/60">
-                {t.modalHint}
-              </div>
+              <div className="mt-3 text-center text-xs text-white/60">{UI.imageHint}</div>
             </div>
           </div>
         )}
