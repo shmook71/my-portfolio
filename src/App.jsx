@@ -9,6 +9,93 @@ import riyadhImg from "./assets/riyadh.png";
 import profileImg from "./assets/profile.png";
 import salesImg from "./assets/sales-dashboard.png";
 
+/* ===================== i18n TEXT ===================== */
+const TEXT = {
+  en: {
+    nav: {
+      home: "Home",
+      about: "About",
+      journey: "Journey",
+      skills: "Skills",
+      projects: "Projects",
+      contact: "Contact",
+    },
+    heroHi: "Hi, I’m",
+    readMore: "Read More",
+    viewProjects: "View Projects",
+    aboutTitle: "Why hire me for your",
+    aboutRight: "next project?",
+    journeyTitle: "My Academic and Professional",
+    journeyRight: "Journey",
+    education: "Education",
+    experience: "Professional Experience",
+    skillsTitle: "Tools",
+    skillsRight: "and Skills",
+    tools: "Tools",
+    skills: "Skills",
+    projectsTitle: "Projects",
+    addScreenshot: "Add project screenshot",
+    contactTitle: "Contact",
+    sendMessage: "Send a message",
+    yourName: "Your name",
+    email: "Email",
+    message: "Message",
+    send: "Send",
+    social: "Social",
+    modalHint: "Click outside or ✕ to close — ESC also closes",
+    stats: {
+      months: "Months",
+      experience: "Experience",
+      projects: "Projects",
+      dashboards: "Dashboards",
+      ml: "ML / Analytics",
+      bi: "BI / Insights",
+    },
+  },
+  ar: {
+    nav: {
+      home: "الرئيسية",
+      about: "نبذة",
+      journey: "المسيرة",
+      skills: "المهارات",
+      projects: "المشاريع",
+      contact: "تواصل",
+    },
+    heroHi: "مرحباً، أنا",
+    readMore: "اقرأ المزيد",
+    viewProjects: "عرض المشاريع",
+    aboutTitle: "لماذا تختارني لـ",
+    aboutRight: "مشروعك القادم؟",
+    journeyTitle: "مسيرتي الأكاديمية",
+    journeyRight: "والمهنية",
+    education: "التعليم",
+    experience: "الخبرات العملية",
+    skillsTitle: "الأدوات",
+    skillsRight: "والمهارات",
+    tools: "الأدوات",
+    skills: "المهارات",
+    projectsTitle: "المشاريع",
+    addScreenshot: "أضف لقطة للمشروع",
+    contactTitle: "تواصل",
+    sendMessage: "أرسل رسالة",
+    yourName: "اسمك",
+    email: "الإيميل",
+    message: "رسالتك",
+    send: "إرسال",
+    social: "روابط",
+    modalHint: "اضغطي خارج الصورة أو ✕ للإغلاق — و ESC يقفل أيضًا",
+    stats: {
+      months: "أشهر",
+      experience: "خبرة",
+      projects: "مشاريع",
+      dashboards: "لوحات",
+      ml: "تعلم آلي/تحليل",
+      bi: "BI / Insights",
+    },
+  },
+};
+
+/* ===================== DATA ===================== */
 const DATA = {
   name: "Shmook Mohammed Baalhareth",
   title: "Data Scientist",
@@ -16,9 +103,9 @@ const DATA = {
   about:
     "I’m a Data Scientist focused on building ML solutions, extracting insights, and delivering measurable impact. I enjoy clean dashboards, solid experimentation, and models that ship.",
   stats: [
-    { big: "6", small: "Months", sub: "Experience" },
-    { big: "4+", small: "Projects", sub: "ML / Analytics" },
-    { big: "3+", small: "Dashboards", sub: "BI / Insights" },
+    { big: "6", smallKey: "months", subKey: "experience" },
+    { big: "4+", smallKey: "projects", subKey: "ml" },
+    { big: "3+", smallKey: "dashboards", subKey: "bi" },
   ],
   tools: ["VS Code", "Git", "GitHub", "Jupyter", "Power BI / Tableau"],
   skills: [
@@ -70,14 +157,15 @@ const DATA = {
       live: "https://kaggleproject-lnvwlsh7fgoky59ejeiqxi.streamlit.app/",
       image: riyadhImg,
     },
-  {
-  title: "Sales Performance & Revenue Analytics Dashboard",
-  desc: "An interactive Retail Sales Analytics Dashboard that provides insights into sales performance, revenue, and profitability.",
-  tags: ["Power BI", "Data Analysis", "Dashboard"],
-  image: salesImg,
-},
-    
-    
+    {
+      title: "Sales Performance & Revenue Analytics Dashboard",
+      desc: "An interactive Retail Sales Analytics Dashboard that provides insights into sales performance, revenue, and profitability.",
+      tags: ["Power BI", "Data Analysis", "Dashboard"],
+      image: salesImg,
+      // ✅ بدون روابط: ما راح يظهر Live/GitHub
+      // live: "#",
+      // github: "#",
+    },
   ],
   contact: {
     email: "shmookaltihami@gmail.com",
@@ -87,7 +175,6 @@ const DATA = {
 };
 
 /* ===================== UI HELPERS ===================== */
-
 function GlowGrid() {
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
@@ -197,9 +284,11 @@ function SocialLink({ href, children }) {
 }
 
 /* ===================== APP ===================== */
-
 export default function App() {
   const [selectedImage, setSelectedImage] = React.useState(null);
+  const [lang, setLang] = React.useState("en");
+  const t = TEXT[lang];
+  const dir = lang === "ar" ? "rtl" : "ltr";
 
   // ✅ إغلاق بالـ ESC
   React.useEffect(() => {
@@ -211,7 +300,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0A192F] text-white">
+    <div dir={dir} className="min-h-screen bg-[#0A192F] text-white">
       {/* Navbar */}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0A192F]/70 backdrop-blur">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3">
@@ -225,14 +314,18 @@ export default function App() {
                   href={`#${k}`}
                   className="hover:text-white transition"
                 >
-                  {k[0].toUpperCase() + k.slice(1)}
+                  {t.nav[k]}
                 </a>
               )
             )}
           </nav>
 
-          <button className="rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/80 hover:text-white transition">
-            Language ▾
+          <button
+            onClick={() => setLang(lang === "en" ? "ar" : "en")}
+            className="rounded-xl border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white/80 hover:text-white transition"
+            title="Switch language"
+          >
+            {lang === "en" ? "AR" : "EN"}
           </button>
         </div>
       </header>
@@ -248,7 +341,7 @@ export default function App() {
             transition={{ duration: 0.6 }}
             className="mb-3 font-mono text-white/85"
           >
-            Hi, I’m
+            {t.heroHi}
           </motion.p>
 
           <motion.h1
@@ -287,26 +380,26 @@ export default function App() {
               href="#about"
               className="rounded-xl border border-white/15 bg-white/10 px-5 py-2 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] transition"
             >
-              Read More
+              {t.readMore}
             </a>
             <a
               href="#projects"
               className="rounded-xl border border-white/15 bg-white/10 px-5 py-2 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.25)] transition"
             >
-              View Projects
+              {t.viewProjects}
             </a>
           </motion.div>
         </section>
 
         {/* ABOUT */}
-        <Section id="about" title="Why hire me for your" rightTitle="next project?">
+        <Section id="about" title={t.aboutTitle} rightTitle={t.aboutRight}>
           <div className="grid gap-6 md:grid-cols-2">
             <Card className="flex items-center justify-center">
               <img
-  src={profileImg}
-  alt="Profile"
-  className="w-full max-w-xs md:max-w-sm object-cover rounded-2xl border border-white/15 shadow-[0_0_30px_rgba(34,211,238,0.25)]"
-/>
+                src={profileImg}
+                alt="Profile"
+                className="w-full max-w-xs md:max-w-sm object-cover rounded-2xl border border-white/15 shadow-[0_0_30px_rgba(34,211,238,0.25)]"
+              />
             </Card>
 
             <Card>
@@ -315,12 +408,16 @@ export default function App() {
               <div className="mt-6 grid grid-cols-3 gap-3">
                 {DATA.stats.map((s) => (
                   <div
-                    key={s.small}
+                    key={s.subKey}
                     className="rounded-2xl border border-white/15 bg-white/5 p-4 text-center"
                   >
                     <div className="font-mono text-2xl text-white">{s.big}</div>
-                    <div className="text-xs text-white/80">{s.small}</div>
-                    <div className="text-xs text-cyan-300">{s.sub}</div>
+                    <div className="text-xs text-white/80">
+                      {t.stats[s.smallKey]}
+                    </div>
+                    <div className="text-xs text-cyan-300">
+                      {t.stats[s.subKey]}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -329,17 +426,23 @@ export default function App() {
         </Section>
 
         {/* JOURNEY */}
-        <Section id="journey" title="My Academic and Professional" rightTitle="Journey">
+        <Section
+          id="journey"
+          title={t.journeyTitle}
+          rightTitle={t.journeyRight}
+        >
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                Education
+                {t.education}
               </h3>
               <div className="space-y-3">
                 {DATA.education.map((e) => (
                   <Card key={e.title}>
                     <div className="text-xs text-white/70">{e.date}</div>
-                    <div className="mt-1 font-mono text-sm text-white">{e.title}</div>
+                    <div className="mt-1 font-mono text-sm text-white">
+                      {e.title}
+                    </div>
                     <div className="text-xs text-white/80">{e.place}</div>
                   </Card>
                 ))}
@@ -348,13 +451,15 @@ export default function App() {
 
             <div>
               <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                Professional Experience
+                {t.experience}
               </h3>
               <div className="space-y-3">
                 {DATA.experience.map((e) => (
                   <Card key={e.title}>
                     <div className="text-xs text-white/70">{e.date}</div>
-                    <div className="mt-1 font-mono text-sm text-white">{e.title}</div>
+                    <div className="mt-1 font-mono text-sm text-white">
+                      {e.title}
+                    </div>
                     <div className="text-xs text-white/80">{e.place}</div>
                   </Card>
                 ))}
@@ -364,19 +469,19 @@ export default function App() {
         </Section>
 
         {/* SKILLS */}
-        <Section id="skills" title="Tools" rightTitle="and Skills">
+        <Section id="skills" title={t.skillsTitle} rightTitle={t.skillsRight}>
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
               <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                Tools
+                {t.tools}
               </h3>
               <ul className="space-y-3 text-sm text-white/90">
-                {DATA.tools.map((t) => (
+                {DATA.tools.map((tool) => (
                   <li
-                    key={t}
+                    key={tool}
                     className="flex items-center justify-between rounded-xl border border-white/15 bg-white/5 px-4 py-3"
                   >
-                    <span className="font-mono">{t}</span>
+                    <span className="font-mono">{tool}</span>
                     <span className="h-2 w-2 rounded-full bg-cyan-300 shadow-[0_0_18px_rgba(34,211,238,0.8)]" />
                   </li>
                 ))}
@@ -385,7 +490,7 @@ export default function App() {
 
             <Card>
               <h3 className="mb-4 text-center font-mono text-sm text-white/90">
-                Skills
+                {t.skills}
               </h3>
               {DATA.skills.map((s) => (
                 <Progress key={s.name} label={s.name} value={s.level} />
@@ -395,7 +500,7 @@ export default function App() {
         </Section>
 
         {/* PROJECTS */}
-        <Section id="projects" title="Projects">
+        <Section id="projects" title={t.projectsTitle}>
           <div className="grid gap-6 md:grid-cols-3">
             {DATA.projects.map((p) => (
               <Card key={p.title} className="group">
@@ -403,12 +508,14 @@ export default function App() {
                   <img
                     src={p.image}
                     alt={p.title}
-                    onClick={() => setSelectedImage({ src: p.image, title: p.title })}
+                    onClick={() =>
+                      setSelectedImage({ src: p.image, title: p.title })
+                    }
                     className="mb-4 h-40 w-full object-cover rounded-xl border border-white/15 cursor-pointer transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                 ) : (
                   <div className="mb-4 h-40 rounded-xl border border-white/15 bg-white/5 flex items-center justify-center text-xs text-white/70">
-                    Add project screenshot
+                    {t.addScreenshot}
                   </div>
                 )}
 
@@ -416,79 +523,83 @@ export default function App() {
                 <p className="mt-2 text-xs leading-5 text-white/90">{p.desc}</p>
 
                 <div className="mt-3 flex flex-wrap gap-2">
-                  {p.tags.map((t) => (
+                  {p.tags.map((tag) => (
                     <span
-                      key={t}
+                      key={tag}
                       className="rounded-full border border-white/15 bg-white/10 px-2 py-1 text-[10px] text-white/90"
                     >
-                      {t}
+                      {tag}
                     </span>
                   ))}
                 </div>
 
                 {(p.live && p.live !== "#") || (p.github && p.github !== "#") ? (
-  <div className="mt-4 flex gap-2">
-    {p.live && p.live !== "#" && (
-      <a
-        className="flex-1 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-center text-xs text-white hover:shadow-[0_0_26px_rgba(34,211,238,0.22)] transition"
-        href={p.live}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Live
-      </a>
-    )}
+                  <div className="mt-4 flex gap-2">
+                    {p.live && p.live !== "#" && (
+                      <a
+                        className="flex-1 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-center text-xs text-white hover:shadow-[0_0_26px_rgba(34,211,238,0.22)] transition"
+                        href={p.live}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        Live
+                      </a>
+                    )}
 
-    {p.github && p.github !== "#" && (
-      <a
-        className="flex-1 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-center text-xs text-white transition"
-        href={p.github}
-        target="_blank"
-        rel="noreferrer"
-      >
-        GitHub
-      </a>
-    )}
-  </div>
-) : null}
+                    {p.github && p.github !== "#" && (
+                      <a
+                        className="flex-1 rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-center text-xs text-white transition"
+                        href={p.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        GitHub
+                      </a>
+                    )}
+                  </div>
+                ) : null}
               </Card>
             ))}
           </div>
         </Section>
 
         {/* CONTACT */}
-        <Section id="contact" title="Contact">
+        <Section id="contact" title={t.contactTitle}>
           <div className="grid gap-6 md:grid-cols-2">
             <Card>
-              <h3 className="mb-4 font-mono text-sm text-white">Send a message</h3>
+              <h3 className="mb-4 font-mono text-sm text-white">
+                {t.sendMessage}
+              </h3>
               <form className="space-y-3">
                 <input
                   className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder="Your name"
+                  placeholder={t.yourName}
                 />
                 <input
                   className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder="Email"
+                  placeholder={t.email}
                 />
                 <textarea
                   className="min-h-[120px] w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder="Message"
+                  placeholder={t.message}
                 />
                 <button
                   type="button"
                   className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] transition"
                 >
-                  Send
+                  {t.send}
                 </button>
               </form>
             </Card>
 
             <Card>
-              <h3 className="mb-4 font-mono text-sm text-white">Social</h3>
+              <h3 className="mb-4 font-mono text-sm text-white">{t.social}</h3>
               <div className="space-y-3 text-sm text-white/90">
                 <SocialLink href={DATA.contact.github}>GitHub</SocialLink>
                 <SocialLink href={DATA.contact.linkedin}>LinkedIn</SocialLink>
-                <SocialLink href={`mailto:${DATA.contact.email}`}>Email</SocialLink>
+                <SocialLink href={`mailto:${DATA.contact.email}`}>
+                  Email
+                </SocialLink>
               </div>
             </Card>
           </div>
@@ -526,8 +637,9 @@ export default function App() {
                 alt={selectedImage.title}
                 className="w-full max-h-[80vh] object-contain rounded-2xl border border-white/15 shadow-2xl"
               />
+
               <div className="mt-3 text-center text-xs text-white/60">
-                اضغطي خارج الصورة أو زر ✕ للإغلاق — ESC يقفل أيضًا
+                {t.modalHint}
               </div>
             </div>
           </div>
