@@ -16,7 +16,7 @@ const DATA_EN = {
   title: "Data Scientist",
   tagline: "Turning data into decisions.",
   about:
-    "I’m a Data Scientist focused on building ML solutions, extracting insights, and delivering measurable impact. I enjoy clean dashboards, solid experimentation, and models that ship.",
+    "I’m a Data Scientist specialized in machine learning, data analysis, and data visualization. I build scalable models and analytical dashboards that help organizations understand their data and make smarter decisions.",
   stats: [
     { big: "6", small: "Months", sub: "Experience" },
     { big: "4+", small: "Projects", sub: "ML / Analytics" },
