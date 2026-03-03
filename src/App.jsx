@@ -86,7 +86,7 @@ const DATA_AR = {
   title: "عالمة بيانات",
   tagline: "أحوّل البيانات إلى قرارات",
   about:
-    "أنا عالمة بيانات أركز على بناء حلول تعلم آلي، استخراج رؤى، وتقديم أثر قابل للقياس. لوحات التحكم النظيفة، التجارب القوية، والنماذج التي تصل للإنتاج.",
+    "أنا عالمة بيانات أركز على بناء حلول تعلم آلي، استخراج رؤى، وتقديم أثر قابل للقياس لوحات التحكم النظيفة، التجارب القوية، والنماذج التي تصل للإنتاج.",
   stats: [
     { big: "6", small: "أشهر", sub: "خبرة" },
     { big: "4+", small: "مشاريع", sub: "تعلم آلي / تحليلات" },
@@ -156,7 +156,6 @@ const UI_EN = {
   readMore: "Read More",
   viewProjects: "View Projects",
   whyHire: "What should I offer?",
-  nextProject: "next project?",
   edu: "Education",
   exp: "Professional Experience",
   tools: "Tools",
@@ -177,12 +176,11 @@ const UI_EN = {
 };
 
 const UI_AR = {
-  nav: { home: "الرئيسية", about: "نبذة", journey: "المسار", skills: "المهارات", projects: "المشاريع", contact: "تواصل" },
+  nav: { home: "الرئيسية", about: "نبذة", journey: "الخبرات", skills: "المهارات", projects: "المشاريع", contact: "تواصل" },
   heroHi: "مرحباً، أنا",
   readMore: "اقرأ المزيد",
   viewProjects: "عرض المشاريع",
   whyHire: "ماذا اقدم ؟",
-  nextProject: "القادم؟",
   edu: "التعليم",
   exp: "الخبرات العملية",
   tools: "الأدوات",
@@ -436,7 +434,7 @@ export default function App() {
         </Section>
 
         {/* JOURNEY */}
-        <Section id="journey" title={lang === "ar" ? "مساري" : "My Academic and Professional"} rightTitle={UI.nav.journey}>
+        <Section id="journey" title={lang === "ar" ? "التعليم والخبرات" : "My Academic and Professional"} rightTitle={UI.nav.journey}>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <h3 className="mb-4 text-center font-mono text-sm text-white/90">{UI.edu}</h3>
