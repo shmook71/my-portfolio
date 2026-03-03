@@ -16,7 +16,7 @@ const DATA_EN = {
   title: "Data Scientist",
   tagline: "Turning data into decisions.",
   about:
-    "I’m a Data Scientist specialized in machine learning, data analysis, and data visualization. I build scalable models and analytical dashboards that help organizations understand their data and make smarter decisions.",
+    "I’m a Data Scientist specialized in machine learning, data analysis, and data visualization I build scalable models and analytical dashboards that help organizations understand their data and make smarter decisions.",
   stats: [
     { big: "6", small: "Months", sub: "Experience" },
     { big: "4+", small: "Projects", sub: "ML / Analytics" },
@@ -82,11 +82,11 @@ const DATA_EN = {
 };
 
 const DATA_AR = {
-  name: "شموخ محمد بالحرث",
+  name: "شموخ محمد بالحارث",
   title: "عالمة بيانات",
-  tagline: "أحوّل البيانات إلى قرارات.",
+  tagline: "أحوّل البيانات إلى قرارات",
   about:
-    "أنا عالمة بيانات أركز على بناء حلول تعلم آلي، استخراج رؤى، وتقديم أثر قابل للقياس. أحب لوحات التحكم النظيفة، التجارب القوية، والنماذج التي تصل للإنتاج.",
+    "أنا عالمة بيانات أركز على بناء حلول تعلم آلي، استخراج رؤى، وتقديم أثر قابل للقياس. لوحات التحكم النظيفة، التجارب القوية، والنماذج التي تصل للإنتاج.",
   stats: [
     { big: "6", small: "أشهر", sub: "خبرة" },
     { big: "4+", small: "مشاريع", sub: "تعلم آلي / تحليلات" },
@@ -155,7 +155,7 @@ const UI_EN = {
   heroHi: "Hi, I’m",
   readMore: "Read More",
   viewProjects: "View Projects",
-  whyHire: "Why hire me for your",
+  whyHire: "What should I offer?",
   nextProject: "next project?",
   edu: "Education",
   exp: "Professional Experience",
@@ -181,7 +181,7 @@ const UI_AR = {
   heroHi: "مرحباً، أنا",
   readMore: "اقرأ المزيد",
   viewProjects: "عرض المشاريع",
-  whyHire: "ليش تختاريني لمشروعك",
+  whyHire: "ماذا اقدم ؟",
   nextProject: "القادم؟",
   edu: "التعليم",
   exp: "الخبرات العملية",
@@ -189,8 +189,8 @@ const UI_AR = {
   toolsAndSkills: "والمهارات",
   skills: "المهارات",
   projects: "المشاريع",
-  contact: "تواصل",
-  sendMessage: "ارسلي رسالة",
+  contact: "للتواصل",
+  sendMessage: "للاستفسار",
   yourName: "اسمك",
   email: "الإيميل",
   message: "رسالتك",
