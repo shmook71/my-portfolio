@@ -2,6 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+// ✅ Icons
+import { Github, Linkedin, Mail } from "lucide-react";
+
 // ✅ ضعّي صورك داخل: src/assets
 import architectImg from "./assets/architectai.png";
 import apacheImg from "./assets/apache.png";
@@ -144,7 +147,8 @@ const DATA_AR = {
     },
   ],
   contact: {
-    email: "mailto:shmookaltihami@gmail.com",
+    // ✅ خلي الإيميل نص فقط (بدون mailto) عشان ما يصير تكرار
+    email: "shmookaltihami@gmail.com",
     github: "https://github.com/shmook71",
     linkedin: "https://www.linkedin.com/in/shmook-baalharith-a876072b3",
   },
@@ -156,6 +160,8 @@ const UI_EN = {
   readMore: "Read More",
   viewProjects: "View Projects",
   whyHire: "What should I offer?",
+  // ✅ (اختياري) لو تبينها مثل السابق: "next project?"
+  nextProject: "next project?",
   edu: "Education",
   exp: "Professional Experience",
   tools: "Tools",
@@ -181,6 +187,7 @@ const UI_AR = {
   readMore: "اقرأ المزيد",
   viewProjects: "عرض المشاريع",
   whyHire: "ماذا اقدم ؟",
+  nextProject: "لمشروعي القادم؟",
   edu: "التعليم",
   exp: "الخبرات العملية",
   tools: "الأدوات",
@@ -312,7 +319,6 @@ export default function App() {
 
   const [selectedImage, setSelectedImage] = React.useState(null);
 
-  // ✅ إغلاق بالـ ESC
   React.useEffect(() => {
     const onKey = (e) => {
       if (e.key === "Escape") setSelectedImage(null);
@@ -582,10 +588,29 @@ export default function App() {
 
             <Card>
               <h3 className="mb-4 font-mono text-sm text-white">{UI.social}</h3>
+
+              {/* ✅ Social with Icons */}
               <div className="space-y-3 text-sm text-white/90">
-                <SocialLink href={DATA.contact.github}>GitHub</SocialLink>
-                <SocialLink href={DATA.contact.linkedin}>LinkedIn</SocialLink>
-                <SocialLink href={`mailto:${DATA.contact.email}`}>Email</SocialLink>
+                <SocialLink href={DATA.contact.github}>
+                  <div className="flex items-center gap-3">
+                    <Github className="h-5 w-5 text-cyan-300" />
+                    <span>{UI.github}</span>
+                  </div>
+                </SocialLink>
+
+                <SocialLink href={DATA.contact.linkedin}>
+                  <div className="flex items-center gap-3">
+                    <Linkedin className="h-5 w-5 text-cyan-300" />
+                    <span>LinkedIn</span>
+                  </div>
+                </SocialLink>
+
+                <SocialLink href={`mailto:${DATA.contact.email}`}>
+                  <div className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-cyan-300" />
+                    <span>{lang === "ar" ? "البريد الإلكتروني" : "Email"}</span>
+                  </div>
+                </SocialLink>
               </div>
             </Card>
           </div>
