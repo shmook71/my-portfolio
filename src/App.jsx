@@ -120,7 +120,7 @@ const DATA_AR = {
     },
     {
       title: "Apache Logs Monitoring Dashboard",
-      desc: "معالجة أكثر من 100 ألف سجل، وتقليل وقت اكتشاف الحوادث 40%، وبناء لوحة مراقبة لحظية للزيارات والأخطاء والشذوذ.",
+      desc: "معالجة أكثر من 100 ألف سجل، وتقليل وقت اكتشاف الحوادث 40%، وبناء لوحة مراقبة لحظية للزيارات والأخطاء.",
       tags: ["Python", "تحليل سجلات", "Dashboard"],
       github: "https://github.com/shmook71/apache-logs-dashboard",
       live: "https://apache-logs-dashboard-exigihcfvcfl5m2nqsvwtp.streamlit.app/",
@@ -434,7 +434,7 @@ export default function App() {
         </Section>
 
         {/* JOURNEY */}
-        <Section id="journey" title={lang === "ar" ? "التعليم والخبرات" : "My Academic and Professional"} rightTitle={UI.nav.journey}>
+        <Section id="journey" title={lang === "ar" ? "التعليم و" : "My Academic and Professional"} rightTitle={UI.nav.journey}>
           <div className="grid gap-6 md:grid-cols-2">
             <div>
               <h3 className="mb-4 text-center font-mono text-sm text-white/90">{UI.edu}</h3>
