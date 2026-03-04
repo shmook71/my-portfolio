@@ -193,7 +193,7 @@ const UI_AR = {
   email: "الإيميل",
   message: "رسالتك",
   send: "إرسال",
-  social: "روابط",
+  social: "معلومات التواصل",
   live: "عرض",
   github: "جيت هاب",
   imageHint: "اضغطي خارج الصورة أو ✕ للإغلاق — زر ESC يقفل أيضاً",
