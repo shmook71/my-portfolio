@@ -144,9 +144,9 @@ const DATA_AR = {
     },
   ],
   contact: {
-    email: "shmookaltihami@gmail.com",
+    email: "mailto:shmookaltihami@gmail.com",
     github: "https://github.com/shmook71",
-    linkedin: "https://www.linkedin.com/in/shmook-balharith-a876072b3",
+    linkedin: "https://www.linkedin.com/in/shmook-baalharith-a876072b3",
   },
 };
 
