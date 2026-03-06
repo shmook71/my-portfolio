@@ -71,7 +71,6 @@ const DATA_EN = {
       title: "Sales Performance & Revenue Analytics Dashboard",
       desc: "An interactive Retail Sales Analytics Dashboard that provides insights into sales performance, revenue, and profitability.",
       tags: ["Power BI", "Data Analysis", "Dashboard"],
-      // ❌ بدون روابط عشان تختفي أزرار Live/GitHub تلقائي
       github: "#",
       live: "#",
       image: salesImg,
@@ -147,7 +146,6 @@ const DATA_AR = {
     },
   ],
   contact: {
-    // ✅ خلي الإيميل نص فقط (بدون mailto) عشان ما يصير تكرار
     email: "shmookaltihami@gmail.com",
     github: "https://github.com/shmook71",
     linkedin: "https://www.linkedin.com/in/shmook-baalharith-a876072b3",
@@ -160,7 +158,6 @@ const UI_EN = {
   readMore: "Read More",
   viewProjects: "View Projects",
   whyHire: "What should I offer?",
-  // ✅ (اختياري) لو تبينها مثل السابق: "next project?"
   nextProject: "next project?",
   edu: "Education",
   exp: "Professional Experience",
@@ -169,11 +166,6 @@ const UI_EN = {
   skills: "Skills",
   projects: "Projects",
   contact: "Contact",
-  sendMessage: "Send a message",
-  yourName: "Your name",
-  email: "Email",
-  message: "Message",
-  send: "Send",
   social: "Social",
   live: "Live",
   github: "GitHub",
@@ -195,11 +187,6 @@ const UI_AR = {
   skills: "المهارات",
   projects: "المشاريع",
   contact: "للتواصل",
-  sendMessage: "للاستفسار",
-  yourName: "اسمك",
-  email: "الإيميل",
-  message: "رسالتك",
-  send: "إرسال",
   social: "معلومات التواصل",
   live: "عرض",
   github: "جيت هاب",
@@ -312,7 +299,7 @@ function SocialLink({ href, children }) {
 /* ===================== APP ===================== */
 
 export default function App() {
-  const [lang, setLang] = React.useState("en"); // "en" | "ar"
+  const [lang, setLang] = React.useState("en");
   const DATA = lang === "ar" ? DATA_AR : DATA_EN;
   const UI = lang === "ar" ? UI_AR : UI_EN;
   const dir = lang === "ar" ? "rtl" : "ltr";
@@ -561,35 +548,10 @@ export default function App() {
 
         {/* CONTACT */}
         <Section id="contact" title={UI.contact}>
-          <div className="grid gap-6 md:grid-cols-2">
-            <Card>
-              <h3 className="mb-4 font-mono text-sm text-white">{UI.sendMessage}</h3>
-              <form className="space-y-3">
-                <input
-                  className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder={UI.yourName}
-                />
-                <input
-                  className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder={UI.email}
-                />
-                <textarea
-                  className="min-h-[120px] w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-white/70 outline-none focus:border-cyan-300/70"
-                  placeholder={UI.message}
-                />
-                <button
-                  type="button"
-                  className="w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white hover:shadow-[0_0_30px_rgba(34,211,238,0.22)] transition"
-                >
-                  {UI.send}
-                </button>
-              </form>
-            </Card>
-
+          <div className="mx-auto max-w-md">
             <Card>
               <h3 className="mb-4 font-mono text-sm text-white">{UI.social}</h3>
 
-              {/* ✅ Social with Icons */}
               <div className="space-y-3 text-sm text-white/90">
                 <SocialLink href={DATA.contact.github}>
                   <div className="flex items-center gap-3">
